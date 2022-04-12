@@ -30,11 +30,8 @@
     /*
       Function to carry out the actual PUT request to S3 using the signed request from the app.
     */
-    function uploadFile(file, signedRequest, url){
+    function uploadFile(file, signedRequest, url) {
       console.log('signedRequest:', signedRequest)
-      console.log('url:', url)
-
-      const xhr = new XMLHttpRequest();
 
       fetch(signedRequest, {
         method: 'PUT',
