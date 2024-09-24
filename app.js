@@ -61,7 +61,7 @@ app.get('/sign-s3', (req, res) => {
   };
 
   s3.getSignedUrl('putObject', s3Params, (err, data) => {
-    if(err){
+    if (err) {
       console.log(err);
       return res.end();
     }
@@ -70,8 +70,7 @@ app.get('/sign-s3', (req, res) => {
       signedRequest: data,
       url: `https://${S3_BUCKET}.s3.amazonaws.com/${fileName}`
     };
-    res.write(JSON.stringify(returnData));
-    res.end();
+    res.json(returnData)
   });
 });
 
